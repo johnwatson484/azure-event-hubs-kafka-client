@@ -1,0 +1,20 @@
+{
+  "name": "azure-event-hub-kafka-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/index.js",
+  "scripts": {
+    "start": "node app/index.js",
+    "start:watch": "nodemon --inspect=0.0.0.0 --ext css,js,njk --legacy-watch app/index.js"
+  },
+  "author": "John Watson",
+  "license": "MIT",
+  "dependencies": {
+    "kafkajs": "^1.15.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "standard": "^16.0.3"
+  }
+}

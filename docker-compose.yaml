@@ -1,0 +1,5 @@
+version: '3.7'
+services:
+  azure-event-hub-kafka-client:
+    build: .
+    image: azure-event-hub-kafka-client

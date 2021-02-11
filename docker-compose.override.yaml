@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  azure-event-hub-kafka-client:
+    build:
+      context: .
+      target: development
+    environment:
+      EVENT_HUB_HOST: ${EVENT_HUB_HOST}
+      EVENT_HUB_CONNECTION_STRING: ${EVENT_HUB_CONNECTION_STRING}
+      EVENT_HUB_TOPIC: ${EVENT_HUB_TOPIC}
+    volumes:
+      - ./app/:/home/node/app/
+      - ./package.json:/home/node/package.json

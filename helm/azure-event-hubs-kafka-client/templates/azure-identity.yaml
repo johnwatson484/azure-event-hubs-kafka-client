@@ -1,0 +1,5 @@
+{{- if .Values.aadPodIdentity }}
+{{- include "helm-library.azure-identity" (list . "azure-event-hubs-kafka-client.azure-identity") -}}
+{{- end }}
+{{- define "azure-event-hubs-kafka-client.azure-identity" -}}
+{{- end -}}

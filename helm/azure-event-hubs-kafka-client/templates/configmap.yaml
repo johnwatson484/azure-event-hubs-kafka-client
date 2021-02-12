@@ -1,0 +1,8 @@
+{{- include "helm-library.configmap" (list . "azure-event-hubs-kafka-client.configmap") -}}
+{{- define "azure-event-hubs-kafka-client.configmap" -}}
+data:
+  EVENT_HUB_HOST: {{ quote .Values.container.eventHubHost }}
+  EVENT_HUB_CONNECTION_STRING: {{ quote .Values.container.eventHubConnectionString }}
+  EVENT_HUB_AUTH: {{ quote .Values.container.eventHubAuth }}
+  EVENT_HUB_TOPIC: {{ quote .Values.container.eventHubTopic }}
+{{- end -}}

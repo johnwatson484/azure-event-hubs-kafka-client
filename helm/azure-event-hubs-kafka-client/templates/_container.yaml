@@ -1,0 +1,5 @@
+{{- define "azure-event-hubs-kafka-client.container" -}}
+envFrom:
+- configMapRef:
+    name: {{ .Values.name }}
+{{- end -}}

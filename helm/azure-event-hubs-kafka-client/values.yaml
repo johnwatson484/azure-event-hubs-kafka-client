@@ -1,0 +1,29 @@
+environment: development
+name: azure-event-hubs-kafka-client
+image: azure-event-hubs-kafka-client
+
+container:
+  imagePullPolicy: IfNotPresent
+  requestMemory: 60Mi
+  requestCpu: 60m
+  limitMemory: 60Mi
+  limitCpu: 60m
+  readOnlyRootFilesystem: false
+  allowPrivilegeEscalation: false
+  eventHubHost:
+  eventHubConnectionString:
+  eventHubAuth:
+  eventHubTopic:
+
+deployment:
+  replicas: 1
+  minReadySeconds: 0
+  redeployOnChange: update this field to force a change
+  runAsNonRoot: true
+  runAsUser: 1000
+
+azureIdentity:
+  resourceID:
+  clientID:
+
+aadPodIdentity: true

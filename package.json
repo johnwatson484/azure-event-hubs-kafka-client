@@ -11,7 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "kafkajs": "^1.15.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "@azure/identity": "^1.2.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.6",

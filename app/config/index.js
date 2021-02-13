@@ -5,7 +5,8 @@ const config = {
   connectionString: process.env.EVENT_HUB_CONNECTION_STRING,
   clientId: process.env.CLIENT_ID || `azure-event-hubs-kafka-client-${uuidv4()}`,
   topic: process.env.EVENT_HUB_TOPIC,
-  authentication: process.env.EVENT_HUB_AUTH || 'connectionString'
+  authentication: process.env.EVENT_HUB_AUTH || 'connectionString',
+  routingKey: 'key'
 }
 
 module.exports = config

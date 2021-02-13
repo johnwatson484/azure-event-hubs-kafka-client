@@ -1,0 +1,4 @@
+helm uninstall azure-event-hubs-kafka-client
+docker build -t johnwatson484.azurecr.io/azure-event-hubs-kafka-client .
+docker push johnwatson484.azurecr.io/azure-event-hubs-kafka-client
+helm upgrade --install azure-event-hubs-kafka-client -f ./helm/azure-event-hubs-kafka-client/dev-values.yaml ./helm/azure-event-hubs-kafka-client/

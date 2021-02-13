@@ -10,6 +10,7 @@ class EventBase {
     this.topic = config.topic
     this.port = this.getPort(config.port)
     this.routingKey = config.routingKey
+    this.getToken = this.getToken.bind(this)
   }
 
   async connect () {
@@ -53,14 +54,17 @@ class EventBase {
     }
   }
 
-  async getTokenCredentials () {
+  getTokenCredentials () {
     return {
       ssl: true,
       sasl: {
         mechanism: 'oauthbearer',
         oauthBearerProvider: async () => {
-          const accessToken = await retry(() => this.getToken(), this.config.retries, this.config.retryWaitInMs, false)
-          return { value: accessToken.token }
+          const accessToken = await retry(() => this.getToken(), 10, 1000, true)
+          console.log('ACQUIRED TOKEN:', accessToken)
+          return {
+            value: accessToken.token
+          }
         }
       }
     }
@@ -79,7 +83,7 @@ class EventBase {
 
   async getToken () {
     const credential = new DefaultAzureCredential()
-    return await credential.getToken([`https://${this.config.host}.servicebus.windows.net`])
+    return await credential.getToken([`https://${this.config.host}`])
   }
 }
 

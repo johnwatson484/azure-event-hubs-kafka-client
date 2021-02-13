@@ -7,7 +7,7 @@
   console.log('Ready to receive events')
   const sender = new EventSender(config)
   await sender.connect()
-  await sender.sendEvents([{ body: `Event from ${config.clientId}` }])
+  await sender.sendEvents([{ body: `Event from ${config.clientId}`, headers: { routingKey: 'key' } }])
   await sender.closeConnection()
 
   process.on('SIGINT', async () => {

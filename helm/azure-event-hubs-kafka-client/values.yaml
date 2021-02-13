@@ -1,9 +1,9 @@
 environment: development
 name: azure-event-hubs-kafka-client
-image: azure-event-hubs-kafka-client
+image: johnwatson484.azurecr.io/azure-event-hubs-kafka-client
 
 container:
-  imagePullPolicy: IfNotPresent
+  imagePullPolicy: Always
   requestMemory: 60Mi
   requestCpu: 60m
   limitMemory: 60Mi
@@ -12,13 +12,13 @@ container:
   allowPrivilegeEscalation: false
   eventHubHost:
   eventHubConnectionString:
-  eventHubAuth:
-  eventHubTopic:
+  eventHubAuth: token
+  eventHubTopic: ffc-demo-claim-update
 
 deployment:
   replicas: 1
   minReadySeconds: 0
-  redeployOnChange: update this field to force a change
+  redeployOnChange: update this field to force da change
   runAsNonRoot: true
   runAsUser: 1000
 

@@ -83,7 +83,7 @@ class EventBase {
 
   async getToken () {
     const credential = new DefaultAzureCredential()
-    return await credential.getToken([`https://${this.config.host}`])
+    return credential.getToken([`https://${this.config.host}`])
   }
 }
 

@@ -1,7 +1,6 @@
 async function retry (fn, retriesLeft = 5, interval = 1000, exponential = false) {
   try {
-    const val = await fn()
-    return val
+    return fn()
   } catch (err) {
     if (retriesLeft) {
       await new Promise(resolve => setTimeout(resolve, interval))
